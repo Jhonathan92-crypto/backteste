@@ -19,4 +19,4 @@ app.get('/', (req, res) => {
     res.send('API funcionando!');
 });
 
-//module.exports = app;
+module.exports = app;
