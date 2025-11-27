@@ -8,7 +8,11 @@ const usuariosRoutes = require('./routes/usuariosRoutes');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type, Authorization"
+}));
 app.use(bodyParser.json({ limit: '50mb' }));
 
 app.use('/conteudos', conteudosRoutes);
@@ -18,5 +22,6 @@ app.use('/usuarios', usuariosRoutes);
 app.get('/', (req, res) => {
     res.send('API funcionando!');
 });
+
 
 module.exports = app;
